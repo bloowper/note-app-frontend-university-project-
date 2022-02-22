@@ -3,7 +3,7 @@ import {HttpEvent, HttpHandler, HttpInterceptor, HttpRequest} from "@angular/com
 import {Observable} from "rxjs";
 
 @Injectable()
-export class ApiPrefixInterceptorService implements HttpInterceptor {
+export class ApiPrefixInterceptor implements HttpInterceptor {
 
     constructor(@Inject("API_URL") private baseUrl:string) {}
 

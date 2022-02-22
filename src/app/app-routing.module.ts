@@ -4,7 +4,7 @@ import {HomepageComponent} from "./components/homepage/homepage.component";
 import {SignInComponent} from "./components/sign/sign-in/sign-in.component";
 import {SignUpComponent} from "./components/sign/sign-up/sign-up.component";
 import {SinkComponent} from "./components/sink/sink.component";
-import {NoteListComponent} from "./components/note/note-list/note-list.component";
+import {TaskMainScreenComponent} from "./components/tasks/task-main-screen/task-main-screen.component";
 
 const routes: Routes = [
     {path: '', redirectTo: '/homepage', pathMatch: 'full'},
@@ -12,7 +12,7 @@ const routes: Routes = [
     {path: 'signin', component: SignInComponent},
     {path: 'signup', component: SignUpComponent},
     {path: 'sink', component: SinkComponent},
-    {path: 'notes', component:NoteListComponent}
+    {path: 'tasks', component:TaskMainScreenComponent}
 
 ];
 

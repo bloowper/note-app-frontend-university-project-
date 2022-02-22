@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { NoteListComponent } from './note-list.component';
+import { TaskMainScreenComponent } from './task-main-screen.component';
 
-describe('NoteListComponent', () => {
-  let component: NoteListComponent;
-  let fixture: ComponentFixture<NoteListComponent>;
+describe('TaskMainScreenComponent', () => {
+  let component: TaskMainScreenComponent;
+  let fixture: ComponentFixture<TaskMainScreenComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ NoteListComponent ]
+      declarations: [ TaskMainScreenComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(NoteListComponent);
+    fixture = TestBed.createComponent(TaskMainScreenComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

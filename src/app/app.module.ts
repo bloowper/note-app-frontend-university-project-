@@ -43,10 +43,11 @@ import { SignUpComponent } from './components/sign/sign-up/sign-up.component';
 import { HomepageComponent } from './components/homepage/homepage.component';
 import {environment} from "../environments/environment";
 import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
-import {ApiPrefixInterceptorService} from "./services/interceptors/api-prefix-interceptor.service";
+import {ApiPrefixInterceptor} from "./services/interceptors/api-prefix-interceptor";
 import { SinkComponent } from './components/sink/sink.component';
 import {ReactiveFormsModule} from "@angular/forms";
-import { NoteListComponent } from './components/note/note-list/note-list.component';
+import { TaskMainScreenComponent } from './components/tasks/task-main-screen/task-main-screen.component';
+import {ApiTokenInterceptor} from "./services/interceptors/api-token-interceptor";
 
 @NgModule({
     declarations: [
@@ -56,7 +57,7 @@ import { NoteListComponent } from './components/note/note-list/note-list.compone
         SignUpComponent,
         HomepageComponent,
         SinkComponent,
-        NoteListComponent,
+        TaskMainScreenComponent,
     ],
     imports: [
         BrowserModule,
@@ -106,7 +107,8 @@ import { NoteListComponent } from './components/note/note-list/note-list.compone
         MatDatepickerModule,
         {provide: "API_URL",useValue: environment.apiUrl},
         //TODO move all interceptors to interceptors class/service
-        {provide: HTTP_INTERCEPTORS , useClass: ApiPrefixInterceptorService,multi: true}
+        {provide: HTTP_INTERCEPTORS , useClass: ApiPrefixInterceptor,multi: true},
+        {provide: HTTP_INTERCEPTORS, useClass: ApiTokenInterceptor, multi: true}
     ],
     bootstrap: [AppComponent]
 })
