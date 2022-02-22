@@ -46,6 +46,7 @@ import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import {ApiPrefixInterceptorService} from "./services/interceptors/api-prefix-interceptor.service";
 import { SinkComponent } from './components/sink/sink.component';
 import {ReactiveFormsModule} from "@angular/forms";
+import { NoteListComponent } from './components/note/note-list/note-list.component';
 
 @NgModule({
     declarations: [
@@ -55,6 +56,7 @@ import {ReactiveFormsModule} from "@angular/forms";
         SignUpComponent,
         HomepageComponent,
         SinkComponent,
+        NoteListComponent,
     ],
     imports: [
         BrowserModule,
