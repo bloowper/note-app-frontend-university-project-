@@ -1,8 +1,9 @@
 import {Injectable} from '@angular/core';
-import {HttpClient} from "@angular/common/http";
+import {HttpClient, HttpParams} from "@angular/common/http";
 import {TaskDto} from "./dto/TaskDto";
 import {UpdateTaskStatusDto} from "./dto/UpdateTaskStatusDto";
 import {CreateTaskDto} from "./dto/CreateTaskDto";
+import {FilterTaskDto} from "./dto/FilterTaskDto";
 
 @Injectable({
     providedIn: 'root'
@@ -14,6 +15,22 @@ export class TaskService {
 
     getTasks() {
         return this.httpClient.get<TaskDto[]>("tasks")
+    }
+
+    getTasksByFilter(filterTaskDto: FilterTaskDto) {
+        let httpParams = new HttpParams();
+        if (filterTaskDto.status != undefined) {
+            console.log("a")
+            httpParams = httpParams.append("status", filterTaskDto.status);
+        }
+        if (filterTaskDto.search != undefined) {
+            httpParams = httpParams.append("search", filterTaskDto.search);
+            console.log("b")
+        }
+        console.log(httpParams);
+        return this.httpClient.get<TaskDto[]>("tasks",{
+            params: httpParams,
+        });
     }
 
     deleteTask(id:string) {
