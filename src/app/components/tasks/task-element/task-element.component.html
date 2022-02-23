@@ -1,0 +1,32 @@
+
+<mat-card>
+    <mat-card-title>
+        <mat-chip-list>
+            <mat-chip color="primary" selected>
+                {{task?.status}}
+            </mat-chip>
+            {{task?.title}}
+        </mat-chip-list>
+    </mat-card-title>
+    <mat-card-content>
+        {{task?.description}}
+    </mat-card-content>
+
+    <mat-card-actions>
+        <button
+            (click)="onDelete()"
+            mat-mini-fab
+            color="primary"
+            class="mr-10"
+        >
+            <mat-icon>delete</mat-icon>
+        </button>
+        <mat-form-field appearance="standard">
+            <mat-select [(ngModel)]="status"  (selectionChange)="onChangeStatus($event)">
+                <mat-option value=OPEN>open</mat-option>
+                <mat-option value=IN_PROGRESS>in progress</mat-option>
+                <mat-option value=DONE>done</mat-option>
+            </mat-select>
+        </mat-form-field>
+    </mat-card-actions>
+</mat-card>

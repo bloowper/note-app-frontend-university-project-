@@ -1,0 +1,17 @@
+<div
+    *ngIf="tasks==null"
+    class="spinner-container"
+>
+    <mat-spinner></mat-spinner>
+</div>
+<div
+    *ngIf="tasks!=null"
+    class="container"
+>
+    <app-task-element
+        *ngFor="let task of tasks"
+        [task]="task"
+        (deleteEvent)="onDelete(task)"
+    ></app-task-element>
+</div>
+

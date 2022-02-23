@@ -1,0 +1,43 @@
+<form
+    [formGroup]="filterForm"
+    (ngSubmit)="onSubmit()"
+>
+    <mat-card>
+        <mat-card-title>Filter tasks</mat-card-title>
+        <mat-card-content
+            fxLayout="row"
+            fxLayoutGap="20px"
+        >
+            <mat-form-field
+                appearance="standard"
+                fxFlex="75%"
+            >
+                <mat-label>note text</mat-label>
+                <input
+                    formControlName="search"
+                    matInput
+                    autocomplete="off"
+                >
+            </mat-form-field>
+            <mat-form-field
+                appearance="standard"
+                fxFlex="25%"
+            >
+                <mat-label>status</mat-label>
+                <mat-select
+                    formControlName="status"
+                >
+                    <mat-option></mat-option>
+                    <mat-option value=OPEN>open</mat-option>
+                    <mat-option value=IN_PROGRESS>in progress</mat-option>
+                    <mat-option value=DONE>done</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </mat-card-content>
+        <mat-card-actions>
+            <button mat-button color="accent">
+                <mat-icon>filter_list</mat-icon>filter
+            </button>
+        </mat-card-actions>
+    </mat-card>
+</form>
