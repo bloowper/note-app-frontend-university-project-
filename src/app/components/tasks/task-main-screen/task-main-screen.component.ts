@@ -1,5 +1,4 @@
 import {Component, OnInit} from '@angular/core';
-import {TaskService} from "../../../services/note/task.service";
 
 @Component({
     selector: 'app-task-main-screen',
@@ -8,15 +7,10 @@ import {TaskService} from "../../../services/note/task.service";
 })
 export class TaskMainScreenComponent implements OnInit {
 
-    constructor(private taskService: TaskService) {
+    constructor() {
     }
 
     ngOnInit(): void {
-        this.taskService.getNotes().subscribe((tasks) => {
-            console.log(tasks)
-        }, (error) => {
-            console.log(error)
-        })
     }
 
 }

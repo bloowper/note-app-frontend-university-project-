@@ -5,6 +5,7 @@ export interface TaskDto {
     status:TaskStatus
 }
 
+
 export enum TaskStatus {
     OPEN = "OPEN",
     IN_PROGRESS = "IN_PROGRESS",

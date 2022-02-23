@@ -43,6 +43,7 @@ export class AuthService {
         setTimeout(() => {
             localStorage.removeItem(this.STORAGE_USER_KEY);
         }, 500);
+        this.router.navigate(['/']);
     }
 
     get isAuthenticated(): boolean {
@@ -60,8 +61,9 @@ export class AuthService {
     }
 
     private autoLogin() {
-        let token = <string|null>localStorage.getItem(this.STORAGE_USER_KEY);
-        if (token ) {
+        let rawToken = localStorage.getItem(this.STORAGE_USER_KEY);
+        if (rawToken ) {
+            let token = JSON.parse(rawToken);//to jest bez sensu...... ale innczej nie działą
             //TODO check for expiration
             this.handleAuthentication(token);
         }

@@ -1,1 +1,12 @@
-<p>task-main-screen works!</p>
+<div fxLayout="column" fxLayoutGap="25px">
+    <div fxLayout="row"
+         fxLayout.lt-md="column"
+         fxLayoutAlign="center"
+         fxLayoutGap="25px"
+    >
+        <app-task-create fxFlex="50%"></app-task-create>
+        <app-task-search fxFlex="50%"></app-task-search>
+    </div>
+    <app-task-list></app-task-list>
+</div>
+

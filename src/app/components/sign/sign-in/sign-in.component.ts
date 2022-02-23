@@ -1,30 +1,31 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {AuthService} from "../../../services/auth/auth.service";
 import {Router} from "@angular/router";
 
 @Component({
-  selector: 'app-sign-in',
-  templateUrl: './sign-in.component.html',
-  styleUrls: ['./sign-in.component.scss']
+    selector: 'app-sign-in',
+    templateUrl: './sign-in.component.html',
+    styleUrls: ['./sign-in.component.scss']
 })
 export class SignInComponent implements OnInit {
 
     form: FormGroup;
     loding: boolean = false;
-    constructor(private authService:AuthService,private formBuilder: FormBuilder,private router: Router) {
+
+    constructor(private authService: AuthService, private formBuilder: FormBuilder, private router: Router) {
         this.form = this.formBuilder.group({
-            password: [null,[
+            password: [null, [
                 Validators.required,
             ]],
-            username: [null,[
+            username: [null, [
                 Validators.required,
             ]]
         })
     }
 
-  ngOnInit(): void {
-  }
+    ngOnInit(): void {
+    }
 
     onSubmit() {
         if (!this.form.invalid) {

@@ -1,6 +1,6 @@
-import {Inject, Injectable} from "@angular/core";
-import {HttpEvent, HttpHandler, HttpHeaders, HttpInterceptor, HttpParams, HttpRequest} from "@angular/common/http";
-import {exhaustMap, Observable, take} from "rxjs";
+import {Injectable} from "@angular/core";
+import {HttpErrorResponse, HttpEvent, HttpHandler, HttpInterceptor, HttpRequest} from "@angular/common/http";
+import {catchError, exhaustMap, Observable, take, throwError} from "rxjs";
 import {AuthService} from "../auth/auth.service";
 
 @Injectable()
@@ -20,10 +20,20 @@ export class ApiTokenInterceptor implements HttpInterceptor {
                             Authorization: `Bearer ${userToken.accessToken}`
                         }
                     });
-                    return next.handle(httpRequest);
+                    return next.handle(httpRequest).pipe(
+                        catchError(this.handleError)//TODO fix this, not working now
+                    );
                 }
             })
         )
     }
 
+    private handleError(errorResponse: HttpErrorResponse) {
+        console.log(errorResponse);
+        if (errorResponse.status == 401) {
+            console.log("[ApiTokenInterceptor] Token not working")
+            this.authService.signout();
+        }
+        return throwError(errorResponse);
+    }
 }

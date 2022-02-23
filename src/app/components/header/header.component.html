@@ -18,6 +18,7 @@
         </button>
         <button
             routerLink="/tasks" routerLinkActive="mat-accent"
+            *ngIf="authService.isAuthenticated"
             fxShow fxHide.lt-sm
             mat-raised-button
             color="primary"

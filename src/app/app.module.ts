@@ -45,9 +45,13 @@ import {environment} from "../environments/environment";
 import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import {ApiPrefixInterceptor} from "./services/interceptors/api-prefix-interceptor";
 import { SinkComponent } from './components/sink/sink.component';
-import {ReactiveFormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { TaskMainScreenComponent } from './components/tasks/task-main-screen/task-main-screen.component';
 import {ApiTokenInterceptor} from "./services/interceptors/api-token-interceptor";
+import { TaskListComponent } from './components/tasks/task-list/task-list.component';
+import { TaskElementComponent } from './components/tasks/task-element/task-element.component';
+import { TaskCreateComponent } from './components/tasks/task-create/task-create.component';
+import { TaskSearchComponent } from './components/tasks/task-search/task-search.component';
 
 @NgModule({
     declarations: [
@@ -58,6 +62,10 @@ import {ApiTokenInterceptor} from "./services/interceptors/api-token-interceptor
         HomepageComponent,
         SinkComponent,
         TaskMainScreenComponent,
+        TaskListComponent,
+        TaskElementComponent,
+        TaskCreateComponent,
+        TaskSearchComponent,
     ],
     imports: [
         BrowserModule,
@@ -101,7 +109,8 @@ import {ApiTokenInterceptor} from "./services/interceptors/api-token-interceptor
         MatPaginatorModule,
 
         HttpClientModule,
-        ReactiveFormsModule
+        ReactiveFormsModule,
+        FormsModule
     ],
     providers: [
         MatDatepickerModule,
